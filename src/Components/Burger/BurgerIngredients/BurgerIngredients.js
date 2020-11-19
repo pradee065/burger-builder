@@ -3,9 +3,31 @@ import PropTypes from 'prop-types';
 import classes from './BurgerIngredients.module.css';
 
 class BurgerIngredients extends Component {
-    render(){
+    
+    // static getDerivedStateFromProps (props, state){
+    //     console.log('[app.js] is getDerived state of updated lifecycle'); 
+    //     return this.state;
+    // }
 
+    shouldComponentUpdate(nextprops, nextstate){
+        console.log('[app.js] is shouldcomponentupdate lifecycle'); 
+        return true;
+    }
+
+    getSnapshotBeforeUpdate(prevprops, nextprops){
+        console.log('[app.js] is getsnapshotbeforeupdate lifecycle'); 
+        return null;
+    }
+
+    componentDidUpdate(prevprops, prevstate, snapshots){
+        console.log('[app.js] is component will lifecycle'); 
+        console.log(snapshots);
+    }
+
+    render(){
+    console.log('[app.js] is updation lifecycle rendered here');    
     let ingredients = null;
+
 
     switch(this.props.type) {
         case ('bread-bottom') : 
